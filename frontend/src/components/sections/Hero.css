@@ -1,0 +1,42 @@
+/* src/components/sections/Hero.css */
+
+.marquee-content {
+  /* Важно: запрещаем блоку сжиматься */
+  flex-shrink: 0;
+  
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  font-size: 48px;
+  font-weight: bold;
+  color: #000;
+  
+  /* Применяем анимацию */
+  animation: marquee 40s linear infinite;
+  will-change: transform;
+}
+
+.marquee-content span {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 25px;
+}
+
+/* Точка-разделитель в бегущей строке */
+.marquee-content span::after {
+  content: "•";
+  margin-left: 25px;
+  font-size: 48px;
+  line-height: 1;
+}
+
+/* Анимация прокрутки */
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    /* Сдвигаем элемент на всю его собственную ширину */
+    transform: translateX(-100%);
+  }
+}
